@@ -1,0 +1,335 @@
+Script started on Mon 09 Apr 2018 07:58:49 PM EDT
+[wambugu1@linux3 proj3]cat makefile 
+CXX = g++
+FLAGS = -gstabs+
+
+all: proj3.out t1.out t2.out
+
+t1.out: QTree.o QTNode.o BBox.o Point.o p3test01.cpp
+	$(CXX) $(FLAGS)  QTree.o QTNode.o BBox.o Point.o p3test01.cpp -o t1.out
+
+t2.out: QTree.o QTNode.o BBox.o Point.o p3test02.cpp
+	$(CXX) $(FLAGS)  QTree.o QTNode.o BBox.o Point.o p3test02.cpp -o t2.out
+
+proj3.out: QTree.o QTNode.o BBox.o Point.o driver.cpp
+	$(CXX) $(FLAGS) QTree.o QTNode.o BBox.o Point.o driver.cpp -o proj3.out
+
+QTree.o: QTree.cpp QTree.h QTNode.o BBox.o Point.o
+	$(CXX) $(FLAGS) -c QTree.cpp
+
+QTNode.o: QTNode.cpp QTNode.h BBox.o Point.o
+	$(CXX) $(FLAGS) -c QTNode.cpp
+
+BBox.o: BBox.cpp BBox.h Point.o
+	$(CXX) $(FLAGS) -c BBox.cpp
+
+Point.o: Point.cpp Point.h
+	$(CXX) $(FLAGS) -c Point.cpp
+
+run:
+	./proj3.out
+
+test1:
+	./t1.out
+
+test2:
+	./t2.out
+
+val:
+	valgrind ./proj3.out
+
+val1:
+	valgrind ./t1.out
+
+val2:
+	valgrind ./t2.out
+
+clean:
+	rm *~
+
+cleaner:
+	rm *.o
+
+cleanest:
+	rm *~
+	rm *.o[wambugu1@linux3 proj3]make
+g++ -gstabs+ -c Point.cpp
+g++ -gstabs+ -c BBox.cpp
+g++ -gstabs+ -c QTNode.cpp
+g++ -gstabs+ -c QTree.cpp
+g++ -gstabs+ QTree.o QTNode.o BBox.o Point.o driver.cpp -o proj3.out
+g++ -gstabs+  QTree.o QTNode.o BBox.o Point.o p3test01.cpp -o t1.out
+g++ -gstabs+  QTree.o QTNode.o BBox.o Point.o p3test02.cpp -o t2.out
+[wambugu1@linux3 proj3]make val1
+valgrind ./t1.out
+==24148== Memcheck, a memory error detector
+==24148== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==24148== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==24148== Command: ./t1.out
+==24148== 
+============================================================
+START Dump of Quad Tree
+------------------------------------------------------------
+[QTNode bounds={botLeft=(4096, 4096), dim=2} is INTERNAL:
+Botom-Left child:
+[QTNode bounds={botLeft=(4096, 4097), dim=1} is LEAF: pt=(4096, 4097), data=2]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=1} is LEAF: pt=(4096, 4096), data=1]
+Top-Right child:
+[NULL]
+]
+------------------------------------------------------------
+END Dump of Quad Tree
+============================================================
+==24148== 
+==24148== HEAP SUMMARY:
+==24148==     in use at exit: 0 bytes in 0 blocks
+==24148==   total heap usage: 12 allocs, 12 frees, 528 bytes allocated
+==24148== 
+==24148== All heap blocks were freed -- no leaks are possible
+==24148== 
+==24148== For counts of detected and suppressed errors, rerun with: -v
+==24148== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 8 from 6)
+[wambugu1@linux3 proj3]make val2
+valgrind ./t2.out
+==24163== Memcheck, a memory error detector
+==24163== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==24163== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==24163== Command: ./t2.out
+==24163== 
+============================================================
+START Dump of Quad Tree
+------------------------------------------------------------
+[QTNode bounds={botLeft=(4096, 4096), dim=2} is INTERNAL:
+Botom-Left child:
+[QTNode bounds={botLeft=(4096, 4097), dim=1} is LEAF: pt=(4096, 4097), data=2]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=1} is LEAF: pt=(4096, 4096), data=1]
+Top-Right child:
+[NULL]
+]
+------------------------------------------------------------
+END Dump of Quad Tree
+============================================================
+============================================================
+START Dump of Quad Tree
+------------------------------------------------------------
+[QTNode bounds={botLeft=(4096, 4096), dim=2} is INTERNAL:
+Botom-Left child:
+[QTNode bounds={botLeft=(4096, 4097), dim=1} is LEAF: pt=(4096, 4097), data=2]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=1} is LEAF: pt=(4096, 4096), data=1]
+Top-Right child:
+[QTNode bounds={botLeft=(4097, 4097), dim=1} is LEAF: pt=(4097, 4097), data=3]
+]
+------------------------------------------------------------
+END Dump of Quad Tree
+============================================================
+============================================================
+START Dump of Quad Tree
+------------------------------------------------------------
+[QTNode bounds={botLeft=(4096, 4096), dim=4} is INTERNAL:
+Botom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=2} is INTERNAL:
+Botom-Left child:
+[QTNode bounds={botLeft=(4096, 4097), dim=1} is LEAF: pt=(4096, 4097), data=2]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=1} is LEAF: pt=(4096, 4096), data=1]
+Top-Right child:
+[QTNode bounds={botLeft=(4097, 4097), dim=1} is LEAF: pt=(4097, 4097), data=3]
+]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[QTNode bounds={botLeft=(4098, 4098), dim=1} is LEAF: pt=(4098, 4098), data=10]
+]
+------------------------------------------------------------
+END Dump of Quad Tree
+============================================================
+============================================================
+START Dump of Quad Tree
+------------------------------------------------------------
+[QTNode bounds={botLeft=(0, 0), dim=16384} is INTERNAL:
+Botom-Left child:
+[QTNode bounds={botLeft=(0, 0), dim=8192} is INTERNAL:
+Botom-Left child:
+[NULL]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[QTNode bounds={botLeft=(4096, 4096), dim=4096} is INTERNAL:
+Botom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=2048} is INTERNAL:
+Botom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=1024} is INTERNAL:
+Botom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=512} is INTERNAL:
+Botom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=256} is INTERNAL:
+Botom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=128} is INTERNAL:
+Botom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=64} is INTERNAL:
+Botom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=32} is INTERNAL:
+Botom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=16} is INTERNAL:
+Botom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=8} is INTERNAL:
+Botom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=4} is INTERNAL:
+Botom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=2} is INTERNAL:
+Botom-Left child:
+[QTNode bounds={botLeft=(4096, 4097), dim=1} is LEAF: pt=(4096, 4097), data=2]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=1} is LEAF: pt=(4096, 4096), data=1]
+Top-Right child:
+[QTNode bounds={botLeft=(4097, 4097), dim=1} is LEAF: pt=(4097, 4097), data=3]
+]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[QTNode bounds={botLeft=(4098, 4098), dim=1} is LEAF: pt=(4098, 4098), data=10]
+]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[NULL]
+]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[NULL]
+]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[NULL]
+]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[NULL]
+]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[NULL]
+]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[NULL]
+]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[NULL]
+]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[NULL]
+]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[NULL]
+]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[NULL]
+]
+]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[QTNode bounds={botLeft=(8193, 8193), dim=1} is LEAF: pt=(8193, 8193), data=20]
+]
+------------------------------------------------------------
+END Dump of Quad Tree
+============================================================
+find() of good pt returned true, w/data 20
+find() of nonexistent pt returned false
+findPoints(): should find 4 pts, claims it found 4
+  Actual 4 values returned: (4096, 4097) (4096, 4096) (4097, 4097) (4098, 4098)
+Remove of existing pt returned true; dump should be much simpler
+============================================================
+START Dump of Quad Tree
+------------------------------------------------------------
+[QTNode bounds={botLeft=(4096, 4096), dim=4} is INTERNAL:
+Botom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=2} is INTERNAL:
+Botom-Left child:
+[QTNode bounds={botLeft=(4096, 4097), dim=1} is LEAF: pt=(4096, 4097), data=2]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=1} is LEAF: pt=(4096, 4096), data=1]
+Top-Right child:
+[QTNode bounds={botLeft=(4097, 4097), dim=1} is LEAF: pt=(4097, 4097), data=3]
+]
+Botom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[QTNode bounds={botLeft=(4098, 4098), dim=1} is LEAF: pt=(4098, 4098), data=10]
+]
+------------------------------------------------------------
+END Dump of Quad Tree
+============================================================
+Remove of nonexistent pt returned false
+==24163== 
+==24163== HEAP SUMMARY:
+==24163==     in use at exit: 0 bytes in 0 blocks
+==24163==   total heap usage: 79 allocs, 79 frees, 3,400 bytes allocated
+==24163== 
+==24163== All heap blocks were freed -- no leaks are possible
+==24163== 
+==24163== For counts of detected and suppressed errors, rerun with: -v
+==24163== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 8 from 6)
+[wambugu1@linux3 proj3]exit
+exit
+
+Script done on Mon 09 Apr 2018 07:59:33 PM EDT

@@ -1,0 +1,221 @@
+============================================================
+START Dump of quadtree
+------------------------------------------------------------
+[QTNode bounds={botLeft=(4096, 4096), dim=2} is INTERNAL:
+Bottom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=1} is LEAF: pt=(4096, 4096), data=1]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[QTNode bounds={botLeft=(4096, 4097), dim=1} is LEAF: pt=(4096, 4097), data=2]
+Top-Right child:
+[NULL]
+]
+------------------------------------------------------------
+END Dump of quadtree
+============================================================
+============================================================
+START Dump of quadtree
+------------------------------------------------------------
+[QTNode bounds={botLeft=(4096, 4096), dim=2} is INTERNAL:
+Bottom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=1} is LEAF: pt=(4096, 4096), data=1]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[QTNode bounds={botLeft=(4096, 4097), dim=1} is LEAF: pt=(4096, 4097), data=2]
+Top-Right child:
+[QTNode bounds={botLeft=(4097, 4097), dim=1} is LEAF: pt=(4097, 4097), data=3]
+]
+------------------------------------------------------------
+END Dump of quadtree
+============================================================
+============================================================
+START Dump of quadtree
+------------------------------------------------------------
+[QTNode bounds={botLeft=(4096, 4096), dim=4} is INTERNAL:
+Bottom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=2} is INTERNAL:
+Bottom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=1} is LEAF: pt=(4096, 4096), data=1]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[QTNode bounds={botLeft=(4096, 4097), dim=1} is LEAF: pt=(4096, 4097), data=2]
+Top-Right child:
+[QTNode bounds={botLeft=(4097, 4097), dim=1} is LEAF: pt=(4097, 4097), data=3]
+]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[QTNode bounds={botLeft=(4098, 4098), dim=2} is LEAF: pt=(4098, 4098), data=10]
+]
+------------------------------------------------------------
+END Dump of quadtree
+============================================================
+============================================================
+START Dump of quadtree
+------------------------------------------------------------
+[QTNode bounds={botLeft=(0, 0), dim=16384} is INTERNAL:
+Bottom-Left child:
+[QTNode bounds={botLeft=(0, 0), dim=8192} is INTERNAL:
+Bottom-Left child:
+[NULL]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[QTNode bounds={botLeft=(4096, 4096), dim=4096} is INTERNAL:
+Bottom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=2048} is INTERNAL:
+Bottom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=1024} is INTERNAL:
+Bottom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=512} is INTERNAL:
+Bottom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=256} is INTERNAL:
+Bottom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=128} is INTERNAL:
+Bottom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=64} is INTERNAL:
+Bottom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=32} is INTERNAL:
+Bottom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=16} is INTERNAL:
+Bottom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=8} is INTERNAL:
+Bottom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=4} is INTERNAL:
+Bottom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=2} is INTERNAL:
+Bottom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=1} is LEAF: pt=(4096, 4096), data=1]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[QTNode bounds={botLeft=(4096, 4097), dim=1} is LEAF: pt=(4096, 4097), data=2]
+Top-Right child:
+[QTNode bounds={botLeft=(4097, 4097), dim=1} is LEAF: pt=(4097, 4097), data=3]
+]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[QTNode bounds={botLeft=(4098, 4098), dim=2} is LEAF: pt=(4098, 4098), data=10]
+]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[NULL]
+]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[NULL]
+]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[NULL]
+]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[NULL]
+]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[NULL]
+]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[NULL]
+]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[NULL]
+]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[NULL]
+]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[NULL]
+]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[NULL]
+]
+]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[QTNode bounds={botLeft=(8192, 8192), dim=8192} is LEAF: pt=(8193, 8193), data=20]
+]
+------------------------------------------------------------
+END Dump of quadtree
+============================================================
+find() of good pt returned true, w/data 20
+find() of nonexistent pt returned false
+findPoints(): should find 4 pts, claims it found 4
+  Actual 4 values returned: (4096, 4096) (4096, 4097) (4097, 4097) (4098, 4098)
+Remove of existing pt returned false; dump should be much simpler
+============================================================
+START Dump of quadtree
+------------------------------------------------------------
+[QTNode bounds={botLeft=(4096, 4096), dim=4} is INTERNAL:
+Bottom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=2} is INTERNAL:
+Bottom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=1} is LEAF: pt=(4096, 4096), data=1]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[QTNode bounds={botLeft=(4096, 4097), dim=1} is LEAF: pt=(4096, 4097), data=2]
+Top-Right child:
+[QTNode bounds={botLeft=(4097, 4097), dim=1} is LEAF: pt=(4097, 4097), data=3]
+]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[NULL]
+Top-Right child:
+[QTNode bounds={botLeft=(4098, 4098), dim=2} is LEAF: pt=(4098, 4098), data=10]
+]
+------------------------------------------------------------
+END Dump of quadtree
+============================================================
+Remove of nonexistent pt returned false

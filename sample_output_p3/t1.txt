@@ -1,0 +1,16 @@
+============================================================
+START Dump of quadtree
+------------------------------------------------------------
+[QTNode bounds={botLeft=(4096, 4096), dim=2} is INTERNAL:
+Bottom-Left child:
+[QTNode bounds={botLeft=(4096, 4096), dim=1} is LEAF: pt=(4096, 4096), data=1]
+Bottom-Right child:
+[NULL]
+Top-Left child:
+[QTNode bounds={botLeft=(4096, 4097), dim=1} is LEAF: pt=(4096, 4097), data=2]
+Top-Right child:
+[NULL]
+]
+------------------------------------------------------------
+END Dump of quadtree
+============================================================
